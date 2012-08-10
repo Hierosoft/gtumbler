@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Gtumbler
+_Comment=Gtumbler application
+Categories=GNOME;Utility;
+Exec=gtumbler
+Icon=gtumbler
+Terminal=false
+Type=Application

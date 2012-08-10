@@ -1,0 +1,6 @@
+project = gtumbler
+version = 12.04
+template = ubuntu-application
+lp_id = gtumbler
+bzrbranch = lp:~phoenix1987/gtumbler/trunk
+ppa = ppa

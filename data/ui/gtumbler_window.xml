@@ -1,0 +1,13 @@
+<glade-catalog name="gtumbler_window" domain="glade-3" 
+               depends="gtk+" version="1.0">
+  <glade-widget-classes>
+    <glade-widget-class title="Gtumbler Window" name="GtumblerWindow" 
+                        generic-name="GtumblerWindow" parent="GtkWindow"
+                        icon-name="widget-gtk-window"/>
+
+    <glade-widget-class title="Document View" name="DocumentView" 
+                        generic-name="DocumentView" parent="GtkDrawingArea"
+                        icon-name="widget-gtk-drawingarea"/>
+
+  </glade-widget-classes>
+</glade-catalog>
