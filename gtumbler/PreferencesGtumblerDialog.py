@@ -39,7 +39,7 @@ class PreferencesGtumblerDialog(PreferencesDialog):
         super(PreferencesGtumblerDialog, self).finish_initializing(builder)
 
         # Bind each preference widget to gsettings
-        settings = Gio.Settings("net.launchpad.gtumbler")
+        settings = Gio.Settings.new("net.launchpad.gtumbler")
         widget = self.builder.get_object('chk_display_path')
         settings.bind("example", widget, "active", Gio.SettingsBindFlags.DEFAULT)
 

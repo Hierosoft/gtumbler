@@ -27,60 +27,60 @@ class BoundingBoxView(Gtk.Viewport):
 
 	__gtype_name__ = "BoundingBoxView"
 	
-    __gsignals__ = {
-        'box-changed' : (GObject.SIGNAL_RUN_FIRST,
-                         None,
-                         (int,) # @param: the new box index
-                        ),
-                        
-        'value-changed' : (GObject.SIGNAL_RUN_FIRST,
-                           None,
-                           ()
-                          ),
-    }
-    
-    def __new__(cls):
-        """Special static method that's automatically called by Python when 
-        constructing a new instance of this class.
-        
-        Returns a fully instantiated BoundingBoxView object.
-        """
-        builder = get_builder('BoundingBoxView')
-        new_object = builder.get_object("bounding_box_view")
-        new_object.finish_initializing(builder)
-        return new_object
+	__gsignals__ = {
+		'box-changed' : (GObject.SIGNAL_RUN_FIRST,
+						 None,
+						 (int,) # @param: the new box index
+						),
+						
+		'value-changed' : (GObject.SIGNAL_RUN_FIRST,
+						   None,
+						   ()
+						  ),
+	}
+	
+	def __new__(cls):
+		"""Special static method that's automatically called by Python when 
+		constructing a new instance of this class.
+		
+		Returns a fully instantiated BoundingBoxView object.
+		"""
+		builder = get_builder('BoundingBoxView')
+		new_object = builder.get_object("bounding_box_view")
+		new_object.finish_initializing(builder)
+		return new_object
 
-    def finish_initializing(self, builder):
-        """Called while initializing this instance in __new__
+	def finish_initializing(self, builder):
+		"""Called while initializing this instance in __new__
 
-        finish_initializing should be called after parsing the UI definition
-        and creating a BoundingBoxView object with it in order to finish
-        initializing the start of the new BoundingBoxView instance.
-        """
-        # Get a reference to the builder and set up the signals.
-        self.builder = builder
-        self.ui = builder.get_ui(self, True)
-        
-        self._bboxes = [[.0] * 4 for i in range(5)]
-        
-    def on_cbo_box_changed(self, widget, *args):
+		finish_initializing should be called after parsing the UI definition
+		and creating a BoundingBoxView object with it in order to finish
+		initializing the start of the new BoundingBoxView instance.
+		"""
+		# Get a reference to the builder and set up the signals.
+		self.builder = builder
+		self.ui = builder.get_ui(self, True)
+		
+		self._bboxes = [[.0] * 4 for i in range(5)]
+		
+	def on_cbo_box_changed(self, widget, *args):
 		n = widget.get_active()
 		for widget, value in zip(BOX_WIDGETS, self._bboxes[n]):
 			getattr(self.ui, 'spb_%s' % widget).set_value(value)
-        self.emit('box-changed', n)
+		self.emit('box-changed', n)
 
-    def on_spb_bottom_value_changed(self, widget, *args):
-        self._bboxes[self.ui.cbo_box.get_active()][1] = widget.get_value()
-        self.emit('value-changed')
+	def on_spb_bottom_value_changed(self, widget, *args):
+		self._bboxes[self.ui.cbo_box.get_active()][1] = widget.get_value()
+		self.emit('value-changed')
 
-    def on_spb_left_value_changed(self, widget, *args):
-        self._bboxes[self.ui.cbo_box.get_active()][2] = widget.get_value()
-        self.emit('value-changed')
+	def on_spb_left_value_changed(self, widget, *args):
+		self._bboxes[self.ui.cbo_box.get_active()][2] = widget.get_value()
+		self.emit('value-changed')
 
-    def on_spb_right_value_changed(self, widget, *args):
-        self._bboxes[self.ui.cbo_box.get_active()][3] = widget.get_value()
-        self.emit('value-changed')
+	def on_spb_right_value_changed(self, widget, *args):
+		self._bboxes[self.ui.cbo_box.get_active()][3] = widget.get_value()
+		self.emit('value-changed')
 
-    def on_spb_top_value_changed(self, widget, *args):
-        self._bboxes[self.ui.cbo_box.get_active()][0] = widget.get_value()
-        self.emit('value-changed')
+	def on_spb_top_value_changed(self, widget, *args):
+		self._bboxes[self.ui.cbo_box.get_active()][0] = widget.get_value()
+		self.emit('value-changed')

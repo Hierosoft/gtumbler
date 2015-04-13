@@ -14,7 +14,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### END LICENSE
 
-style = """
+style = b"""
 #tb_side {
     background-image: -gtk-gradient(linear,
                                     left top, left bottom,
@@ -36,3 +36,5 @@ style = """
     color: shade(red, 1.85);
 }
 """
+
+style = ""
