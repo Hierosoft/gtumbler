@@ -139,7 +139,7 @@ class GtumblerWindow(Window):
 			except Exception as e:
 				# TODO: Add notification of failure
 				print("Failed to open document")
-				print("Reason: %s", e)
+				print(("Reason: %s", e))
 				
 		open_dialog.destroy()
 
