@@ -1,0 +1,72 @@
+$BZR fast-export --marks=../gtumbler.bzr --git-branch=0.1 \
+   $SRC_REPO/0.1 | git fast-import \
+   --import-marks=../marks.git --export-marks=../marks.git
+14:32:37 Calculating the revisions to include ...
+14:32:37 Starting export of 4 revisions ...
+brz: ERROR: KeyError: b'null:'
+
+Traceback (most recent call last):
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/commands.py", line 1032, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/commands.py", line 1224, in run_bzr
+    ret = run(*run_argv)
+          ^^^^^^^^^^^^^^
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/commands.py", line 774, in run_argv_aliases
+    return self.run(**all_cmd_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/commands.py", line 799, in run
+    return class_run(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/plugins/fastimport/cmds.py", line 501, in run
+    return exporter.run()
+           ^^^^^^^^^^^^^^
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/plugins/fastimport/exporter.py", line 257, in run
+    self.emit_commits(interesting)
+  File "/home/owner/.virtualenvs/breezy/lib64/python3.11/site-packages/breezy/plugins/fastimport/exporter.py", line 246, in emit_commits
+    self.emit_commit(revobj, self.ref, trees[parent], trees[revid])
+                                       ~~~~~^^^^^^^^
+KeyError: b'null:'
+
+brz 3.3.3 on python 3.11.3 (Linux-6.2.14-300.fc38.x86_64-x86_64-with-
+    glibc2.37)
+arguments: ['/home/owner/.virtualenvs/breezy/bin/brz', 'fast-export', '--
+    marks=../gtumbler.bzr', '--git-branch=0.1',
+    '/home/owner/Downloads/git/~phoenix1987/gtumbler/0.1']
+plugins: bash_completion[3.3.3], changelog_merge[3.3.3],
+    commitfromnews[3.3.3], cvs[3.3.3], darcs[3.3.3], email[3.3.3],
+    fastimport[3.3.3], flake8[unknown], fossil[3.3.3], github[3.3.3],
+    gitlab[3.3.3], hg[3.3.3], launchpad[3.3.3], mtn[3.3.3],
+    netrc_credential_store[3.3.3], news_merge[3.3.3], po_merge[3.3.3],
+    propose[3.3.3], pypi[3.3.3], quilt[unknown], repodebug[3.3.3],
+    rewrite[unknown], stats[3.3.3], svn[3.3.3], upload[3.3.3],
+    weave_fmt[3.3.3], webdav[3.3.3], zsh_completion[3.3.3]
+encoding: 'utf-8', fsenc: 'utf-8', lang: 'en_US.UTF-8'
+
+*** Breezy has encountered an internal error.  This probably indicates a
+    bug in Breezy.  You can help us fix it by filing a bug report at
+        https://bugs.launchpad.net/brz/+filebug
+    including this traceback and a description of the problem.
+fast-import statistics:
+---------------------------------------------------------------------
+Alloc'd objects:       5000
+Total objects:            0 (         0 duplicates                  )
+      blobs  :            0 (         0 duplicates          0 deltas of          0 attempts)
+      trees  :            0 (         0 duplicates          0 deltas of          0 attempts)
+      commits:            0 (         0 duplicates          0 deltas of          0 attempts)
+      tags   :            0 (         0 duplicates          0 deltas of          0 attempts)
+Total branches:           0 (         0 loads     )
+      marks:           1024 (         4 unique    )
+      atoms:              0
+Memory total:          2399 KiB
+       pools:          2048 KiB
+     objects:           351 KiB
+---------------------------------------------------------------------
+pack_report: getpagesize()            =       4096
+pack_report: core.packedGitWindowSize = 1073741824
+pack_report: core.packedGitLimit      = 35184372088832
+pack_report: pack_used_ctr            =          0
+pack_report: pack_mmap_calls          =          0
+pack_report: pack_open_windows        =          0 /          0
+pack_report: pack_mapped              =          0 /          0
+---------------------------------------------------------------------
